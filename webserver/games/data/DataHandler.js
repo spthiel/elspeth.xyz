@@ -21,7 +21,7 @@
 const BUILDENV = require("../../AppConstants").build
 const mysql = require("mysql");
 
-const SQLAUTH = require("./sql.auth");
+const SQLAUTH = require("./auth.json");
 
 if (!BUILDENV) {
     SQLAUTH.password = SQLAUTH.passworddev || SQLAUTH.password;
