@@ -171,11 +171,18 @@ function join(uid, room) {
 
 // ==========================================================
 
+let idIncrement = 0;
+const maxIdIncrement = 0xfff;
+
 /**
  * @returns {string}
  */
 function generateID() {
-    return '_' + Math.random().toString(36).substr(2, 9);
+    idIncrement++;
+    if (idIncrement > maxIdIncrement) {
+        idIncrement = 0;
+    }
+    return (BigInt(Date.now()) << 12n + BigInt(idIncrement++)).toString();
 }
 
 /**
@@ -215,7 +222,6 @@ packetHandler.receiveMessage = (websocket, message) => {
     if(!message.uid) {
         let uid = generateID();
         message.uid = uid;
-        //TODO: Check if uid is duplicate
         websocket.send(new CookiePacket({uid: uid}).construct());
     }
 

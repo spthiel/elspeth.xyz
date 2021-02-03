@@ -29,7 +29,7 @@ if (!BUILDENV) {
 
 const connection = mysql.createPool(SQLAUTH);
 
-connection.query("CREATE TABLE IF NOT EXISTS users (fid int auto_increment not null, uid varchar(20), name varchar(20), primary key(fid))");
+connection.query("CREATE TABLE IF NOT EXISTS users (fid int auto_increment not null, uid bigint, name varchar(20), primary key(fid))");
 
 /**
  * @type {Object.<int, Room>}
@@ -45,7 +45,9 @@ let players = {};
  * @returns {number} Random 5 digit number
  */
 function generateRoomNumber() {
-    return (Math.random() * 90000 + 10000) | 0;
+    let room;
+    while (rooms[(room = (Math.random() * 90000 + 10000) | 0)]) {}
+    return room;
 }
 
 function getUser(uid) {
@@ -111,11 +113,7 @@ module.exports = {
 
     createRoom() {
 
-        let room;
-
-        do {
-            room = generateRoomNumber();
-        } while (rooms[room])
+        let room = generateRoomNumber();
 
         rooms[room] = {'players': []};
 
@@ -152,11 +150,7 @@ module.exports = {
                         }
 
                         let roomObj = rooms[room];
-                        if (roomObj.players.length === 0) {
-                            player.admin = true;
-                        } else {
-                            player.admin = false;
-                        }
+                        player.admin = roomObj.players.length === 0;
                         rooms[room].players.push(player);
                         player.room = room;
                     }
