@@ -1,0 +1,9 @@
+.player-list {
+    padding: 10px;
+    flex-direction: column;
+    display: flex;
+}
+
+.player {
+    white-space: nowrap;
+}

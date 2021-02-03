@@ -1,0 +1,45 @@
+Not up to date
+
+Server to client packets
+==============
+Any:
+- history: string - update location
+- cookies: {string: string...} - cookies to set on the client
+
+
+Player event types
+-------------------
+
+Player joined room
+- type: "join"
+- data: {"name": string, "uid": string}
+
+Player disconnected
+- type: "leave"
+- data: {"uid": string}
+
+Admin of room changed
+- type: "changeadmin"
+- data: {"uid": string}
+
+Player update
+- type: "update"
+- data: {"uid": uid, "changed": {string:string...}}
+
+Setrole
+- type: "role"
+- data: {"role": string}
+
+
+Client to server packets
+===============
+Any:
+- uid: uid of the client
+
+Change name of client
+- type: "name"
+- data: {"name": string}
+
+Request status to client
+- type: "init"
+- data: {}

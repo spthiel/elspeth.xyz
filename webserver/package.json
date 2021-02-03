@@ -1,0 +1,23 @@
+{
+  "name": "elspeth.xyz",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node app.js",
+    "dev": "node app.js -devenv"
+  },
+  "dependencies": {
+    "bouncy": "^3.2.2",
+    "cookie-parser": "^1.4.5",
+    "crypto": "^1.0.1",
+    "express": "^4.17.1",
+    "express-ws": "^4.0.0",
+    "mysql": "^2.18.1",
+    "request": "^2.88.2"
+  },
+  "main": "app.js",
+  "devDependencies": {},
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

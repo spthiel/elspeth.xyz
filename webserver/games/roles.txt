@@ -1,0 +1,90 @@
+Roles:
+
+Werwolf
+- select non werwolf living
+
+Dorfbewohner
+
+Hexe
+- see dead
+- select bool
+- select non self living
+
+Jäger
+- onDeath
+- select living
+
+Amor
+- select two non self living
+- onPlayerDeath
+
+Seherin
+- select non self living
+
+Heiler
+- select non last living
+
+Sündenbock
+- onDecision
+
+Dorfdepp
+- onVoteDeath
+
+Der Alte
+- onWerewolfDeath
+
+Flötenspieler
+- select two non-verzaubert non-self living
+
+Der weiße Werwolf
+- select 0..1 werewolf living
+
+Der schwarze Rabe
+- select living
+
+Der große Böse Wolf extends Werwolf
+- select living non werewolf
+- onPlayerDeath
+
+Der Urwolf extends Werwolf
+- select boolean
+
+Der Wolfshund
+- select from werewolf, villager
+
+Das wilde Kind
+- select non self living
+- onPlayerDeath
+
+Die reine Seele
+
+Der Engel
+- onVoteDeath
+
+Die drei Brüder
+
+Die zwei Schwestern
+
+Der Fuchs
+- select living
+
+Die ergebene Magd
+- select bool
+
+Der Bärenführer
+
+Der Ritter mit dem verrosteten Schwert
+- onWerewolfDeath
+- onDay
+
+Der stotternde Richter
+- select bool
+
+
+Not implemented:
+
+Dieb
+Der Gaukler
+Der Brandstifter
+Der Büttel
+Die Zigeunerin - Missing Spiritualismuskarten

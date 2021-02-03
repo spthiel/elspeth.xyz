@@ -1,0 +1,31 @@
+.border-layout {
+    display: grid;
+    grid-template-areas:
+        "top top top"
+        "left center right"
+        "left bottom right";
+    grid-template-columns: min-content 1fr min-content;
+    grid-template-rows: min-content 1fr min-content;
+    height: 100%;
+    width: 100%;
+}
+
+.border-layout > .top {
+    grid-area: top;
+}
+
+.border-layout > .left {
+    grid-area: left;
+}
+
+.border-layout > .center {
+    grid-area: center;
+}
+
+.border-layout > .right {
+    grid-area: right;
+}
+
+.border-layout > .bottom {
+    grid-area: bottom;
+}

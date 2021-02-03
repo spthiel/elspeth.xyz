@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Nim</title>
+        <link href="style.css" rel="stylesheet" type="text/css">
+        <script src="game.js" type="application/javascript"></script>
+        <script src="main.js" type="application/javascript"></script>
+    </head>
+    <body>
+        <div id="board" overlay="Press Start">
+            <div class="boardcenter">
+                <button id="submitButton" onclick="if (!game.wait){game.turn();}">Zug spielen</button>
+            </div>
+            <div id="heap1" class="heap">
+                <div class="match unlit"></div>
+            </div>
+        </div>
+        <div id="settings">
+            <form onsubmit="return false;">
+                <div id="botsettings" class="settingsgroup">
+                    <div class="setting botactive">
+                        <label for="botactive">Gegen Computer</label>
+                        <input id="botactive" type="checkbox"
+                               onclick="if(this.checked){this.form.botfirst.parentElement.removeAttribute('hidden')} else {this.form.botfirst.parentElement.setAttribute('hidden','')}">
+                    </div>
+                    <div class="setting botfirst" hidden>
+                        <label for="botfirst">Computer zieht zuerst</label>
+                        <input id="botfirst" type="checkbox">
+                    </div>
+                </div>
+                <div id="generalsettings" class="settingsgroup">
+                    <div>
+                        <label>Spieltyp</label>
+                        <div>
+                            <input id="normal" type="radio" name="gametype" value="Normal" checked>
+                            <label for="normal">Normal</label>
+                        </div>
+                        <div>
+                            <input id="misere" type="radio" name="gametype" value="Misere">
+                            <label for="misere">Misère</label>
+                        </div>
+                    </div>
+                </div>
+                <div id="heapsettings">
+                    <button type="button" id="addheap" onclick="addRow()">Reihe hinzufügen</button>
+                    <button type="button" id="removeheap" onclick="removeRow()" disabled>Reihe entfernen</button>
+                    <div class="setting">
+                        <label for="heap1count">Reihe 1</label>
+                        <input heap="1" id="heap1count" type="number" min="1" max="15" value="1"
+                               onchange="change(parseInt(this.getAttribute('heap')), parseInt(this.value))">
+                    </div>
+                    <div id="heaps">
+
+                    </div>
+                </div>
+                <div id="start">
+                    <button type="submit" onclick="game.start()">Start</button>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

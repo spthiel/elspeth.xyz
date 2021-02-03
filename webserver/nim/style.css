@@ -1,0 +1,107 @@
+body {
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    background: #002400;
+    color: antiquewhite;
+    display: flex;
+    font-family: Helvetica, serif;
+    font-size: larger;
+}
+
+#board {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    margin: 5px;
+    position: relative;
+}
+
+#settings {
+    display: flex;
+    flex-direction: column;
+    user-select: none;
+
+    margin: 5px;
+}
+
+.setting {
+    display: flex;
+    justify-content: space-between;
+}
+
+form > div:not(:last-child) {
+    margin-bottom: 2em;
+}
+
+input[type="number"] {
+    width: 40px;
+}
+
+.match {
+    width: 40px;
+    height: 100px;
+    background-image: url("unlitmatch.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.lit {
+    background-image: url("litmatch.png");
+}
+
+#board > *:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.boardcenter,
+.heap {
+    display: flex;
+    justify-content: center;
+}
+
+.heap > div:not(:last-child) {
+    margin-right: 5px;
+}
+
+.match {
+    transition: border-color .4s;
+    border-width: 2px;
+    border-style: solid;
+    border-color: transparent;
+}
+
+.match .lit {
+    opacity: .5;
+}
+
+.match.select {
+    border-color: crimson;
+}
+
+[hidden] {
+    display: none;
+}
+
+[overlay]:not([overlay=""]):after {
+    content: " ";
+    position: absolute;
+    background: rgba(0,0,0,.5);
+    left: 0;
+    top: 0;
+    z-index: 5;
+    width: 100%;
+    height: 100%;
+}
+
+[overlay]:not([overlay=""]):before {
+    content: attr(overlay);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 6;
+}
