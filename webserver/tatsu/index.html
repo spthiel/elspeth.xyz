@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en-EN">
+    <head>
+        <base href="https://elspeth.xyz/tatsu/">
+        <meta charset="utf-8"/>
+        <title>Tatsu is Grounded</title>
+        <link rel="icon" href="./seo/favicon.ico"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Makes it easy to genererate sleek designs for your tatsubot backgrounds.">
+        <meta name="og:title" content="Tatsu is grounded.">
+        <meta name="og:description" content="Makes it easy to generate sleek designs for your tatsubot backgrounds.">
+        <meta name="og:image" content="./seo/ogimage.png">
+        <link rel="apple-touch-icon" href="./seo/logo192.png"/>
+        <link rel="manifest" href="./seo/manifest.json"/>
+        <link rel="stylesheet" href="./build/public/css/bundle.min.css">
+    </head>
+    <body style="user-select: none">
+        <div style="display: flex; justify-content: space-between; flex-wrap: wrap">
+            <span>Rightclick - Place shape. Rightclick on hitbox delete shape. Doubleclick (on hitbox) - Rotate shape. Click and hold to move</span>
+        </div>
+        <div class="mainPadding">
+            <div class="column">
+                <div id="settingsGrid">
+                    <label class="input">
+                        <span>Main color</span>
+                        <input value="#48de6d" type="color" setting="global.main" repaint>
+                    </label>
+                    <label class="input">
+                        <span>Background</span>
+                        <input value="#000000" type="color" setting="global.background.backgroundColor">
+                    </label>
+                    <label class="input">
+                        <span>Inner color</span>
+                        <input value="#a2a2a2" type="color" setting="global.inner">
+                    </label>
+                    <label class="input">
+                        <span>Outer color</span>
+                        <input value="#565656" type="color" setting="global.outer">
+                    </label>
+                    <div class="input">
+                        <span>Background image</span>
+                        <label for="backgroundImage" class="button">Upload background</label>
+                        <input id="backgroundImage" type="file" setting="global.background.backgroundImage"
+                               accept="image/gif, image/jpeg, image/png">
+                    </div>
+                    <label class="input">
+                        <span>Background dim</span>
+                        <input type="number" min="0" max="100" setting="global.background.backgroundDim" value="0">
+                    </label>
+                    <label class="input">
+                        <span>Show shape hitboxes</span>
+                        <input type="checkbox" setting="global.hitboxes">
+                    </label>
+                    <div class="input">
+                        <button action="download">Download</button>
+                    </div>
+                </div>
+                <div id="gradientGrid">
+                    <button action="addGradient" repaint="">Add gradient point</button>
+                    <div class="spaceBetween">
+                        <div class="checkbox">
+                            <input id="gradientEnabled" type="checkbox" setting="global.gradient.enabled" repaint>
+                            <label for="gradientEnabled">Use gradient</label>
+                        </div>
+                        <label for="gradientDirection" hidden>Gradient direction</label>
+                        <select id="gradientDirection" setting="global.gradient.direction" repaint>
+                            <option value="0">Top left -> Bottom right</option>
+                            <option value="1">Top -> Bottom</option>
+                            <option value="2">Top right -> Bottom left</option>
+                            <option value="3">Right -> Left</option>
+                            <option value="4">Bottom right -> Top left</option>
+                            <option value="5">Bottom -> Top</option>
+                            <option value="6">Bottom left -> Top right</option>
+                            <option value="7">Left -> Right</option>
+                        </select>
+                    </div>
+                    <div class="checkbox">
+                        <input id="rainbowEnabled" type="checkbox" setting="global.gradient.rainbow" repaint>
+                        <label for="rainbowEnabled">Rainbow</label>
+                    </div>
+                    <div id="gradientPoints"></div>
+                </div>
+            </div>
+        </div>
+        <div class="navbar">
+            <label class="navlabel">
+                <input type="radio" name="nav" action="switch" value="0" class="navbutton" checked/>
+                <span>Profile</span>
+            </label>
+            <label class="navlabel">
+                <input type="radio" name="nav" action="switch" value="1" class="navbutton">
+                <span>Rank</span>
+            </label>
+            <label class="navlabel">
+                <input type="radio" name="nav" action="switch" value="2" class="navbutton">
+                <span>Level Up</span>
+            </label>
+            <label class="navlabel">
+                <input type="radio" name="nav" action="switch" value="3" class="navbutton">
+                <span>Wallet</span>
+            </label>
+        </div>
+        <div style="display: grid; place-items: center">
+            <div id="contextMenu"></div>
+            <div id="scrollGrid">
+                <canvas id="canvas" width="1px" height="1px"></canvas>
+                <scrollbar class="scrollbar" type="height" setting="global.background.y"></scrollbar>
+                <scrollbar class="scrollbar" type="width" setting="global.background.x"></scrollbar>
+            </div>
+            <span>Average render time: <span id="avgRenderTime">0ms</span></span>
+        </div>
+        <script type="module" src="./build/public/js/bundle.min.js"></script>
+    </body>
+</html>

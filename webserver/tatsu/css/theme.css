@@ -1,0 +1,30 @@
+:root {
+    --floating: rgb(32, 34, 37);
+    --primary: rgb(114, 137, 218);
+    --deselected: rgb(154, 154, 154);
+    --background: rgb(40, 42, 46);
+    --paper: rgb(53, 56, 61);
+    --foreground: rgb(226, 226, 226);
+    --font-family: Rubik, sans-serif;
+    --font-size: 1.6rem;
+    --line-height: 1.5;
+}
+
+body {
+    font-family: var(--font-family);
+    line-height: var(--line-height);
+    font-size: var(--font-size);
+    font-weight: 400;
+    background: var(--background);
+    color: var(--foreground);
+}
+
+input, button {
+    font-family: var(--font-family);
+    line-height: var(--line-height);
+    font-size: var(--font-size);
+}
+
+html {
+    font-size: 62.5%;
+}

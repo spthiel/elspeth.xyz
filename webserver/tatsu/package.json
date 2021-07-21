@@ -1,0 +1,17 @@
+{
+  "name": "tatsubackground",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "gulp && rollup js/main.js --format iife --name \"bundle\" --file build/private/js/bundle.js && uglifyjs build/private/js/bundle.js -o build/public/js/bundle.min.js -c -m"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-minify": "^3.1.0"
+  }
+}
